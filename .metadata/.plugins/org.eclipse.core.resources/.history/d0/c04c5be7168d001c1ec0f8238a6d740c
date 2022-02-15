@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>DellTask</groupId>
+  <artifactId>DellTask</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<aspectj.version>1.9.6</aspectj.version>
+		<selenium-version>4.0.0-beta-3</selenium-version>
+		<testng-version>7.4.0</testng-version>
+		<ashot-version>1.5.4</ashot-version>
+		<allure-testng-version>2.13.9</allure-testng-version>
+		<log4j-version>2.14.1</log4j-version>
+		<extentreports-version>5.0.8</extentreports-version>
+		<maven-surefire-plugin-version>3.0.0-M5</maven-surefire-plugin-version>
+	</properties>
+  <build>
+    <sourceDirectory>src</sourceDirectory>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

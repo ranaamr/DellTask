@@ -1,0 +1,79 @@
+package com.Pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginPage {
+
+	static WebDriver driver;
+   WebDriverWait wait;
+
+	// Locators of Elements of the login page
+   By rgstrBtn = By.id("Primary_Navbar-Register");
+	By usernameTxt = By.id("txtUsername");
+	By passwordTxt = By.id("txtPassword");
+	By loginBtn = By.id("btnLogin");
+	By welcomeTxt = By.id("welcome");
+	By invalidCredMsg = By.xpath("//div[@id='divLoginButton']/span[@id='spanMessage']");
+	By welcomeMenu = By.id("welcome");
+	By logoutBtn = By.xpath("//div[@id='welcome-menu']/ul/li/a[text()='Logout']");
+	
+	
+	// Constructor
+	public LoginPage(WebDriver driver) {
+		LoginPage.driver = driver;
+		wait = new WebDriverWait(driver, 1000);
+	}
+
+	// Set Username Text field
+	public void setUsernamevalue(String usrname) throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(usernameTxt));
+		driver.findElement(usernameTxt).sendKeys(usrname);
+	}
+
+	// Set Password Text field
+	public void setPassowrdvalue(String Password) throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(passwordTxt));
+		driver.findElement(passwordTxt).sendKeys(Password);
+	}
+
+	// click on login button
+	public void clickLogin() throws InterruptedException {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(loginBtn));
+		driver.findElement(loginBtn).click();
+	}
+	
+
+	// click on logout button
+	public void clickLogout() throws InterruptedException {
+		driver.findElement(welcomeMenu).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(logoutBtn));
+		driver.findElement(logoutBtn).click();
+	}
+	
+	//Verify User logged in
+	public String verifyUserloggedInSuccessfully()throws InterruptedException{
+		
+	  wait.until(ExpectedConditions.visibilityOfElementLocated(welcomeTxt));
+		
+		String actualText = driver.findElement(welcomeTxt).getText();
+		return actualText;
+		
+		
+	}
+	//Verify user not logged Invalid credentials
+	public String verifyInvalidCredentailsMsg()throws InterruptedException{
+		
+		  wait.until(ExpectedConditions.visibilityOfElementLocated(invalidCredMsg));
+			
+			String actualText = driver.findElement(invalidCredMsg).getText();
+			return actualText;
+			
+			
+		}
+	
+	
+
+}

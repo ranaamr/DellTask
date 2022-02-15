@@ -1,0 +1,14 @@
+Instructions :
+
+#Setup Enviroment to run the script :
+ 1- Import the project in any java IDE
+ 2-Run the Pom file to install all dependencies
+ 3-Then check that testng installed successfully
+ 4- Run the RegisterTcs.java class as testng
+ 5-Then check the result
+
+#Comments :
+
+1-Unfortunately the script will fail because of the reCAPTCHA images as it can't be automated
+2-also I have used dataprovider for data driven scenrio
+

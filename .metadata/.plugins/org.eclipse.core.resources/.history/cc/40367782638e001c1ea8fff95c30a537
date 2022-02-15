@@ -1,0 +1,73 @@
+package com.TestCases;
+
+import org.testng.annotations.Test;
+
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.Base.TestBase;
+
+import com.Pages.RegisterPage;
+
+public class RegisterTCs extends TestBase {
+
+	RegisterPage registerobj;
+
+	@BeforeTest
+	public void beforeMethod() throws InterruptedException {
+
+		registerobj = new RegisterPage(driver);
+
+	}
+
+	// Positive Register scenario
+	@Test(priority = 1, dataProvider = "Authentication" )
+	public void verifyUsercanRegistersuccessfully(String First , String Last , String Email ,
+			String phone , String Company , String add1 , String add2 , String city,
+			String Country ,
+			String whatsappphone , String pass1 , String pass2,
+			String ExpectedText) throws InterruptedException {
+		registerobj.clickCreateAccount();
+		registerobj.setFirstnamevalue("Rana");
+		registerobj.setLastnamevalue("Amr");
+		registerobj.setEmailvalue("RanaAmr@hotmail.com");
+		//registerobj.chooseCountryvalue("+20");
+		registerobj.setPhonevalue("1142267459");
+		registerobj.setCompanyvalue("Company");
+		registerobj.setAddress1value("Address1");
+		registerobj.setAddress2value("Address2");
+		registerobj.setCityvalue("Cairo");
+		registerobj.chooseCountry2value("Egypt");
+		registerobj.setWhatsappMobvalue("01142267459");
+		registerobj.setPassowrd1value("Rana@amr1995");
+		registerobj.setPassowrd2value("Rana@amr1995");
+		registerobj.clickonrecaptchaCheck();
+		registerobj.clickRegister();
+		
+		String actualText = registerobj.verifyUserRegisterSuccessfully();
+		String expectedText = "My Dashboard" ; 
+		Assert.assertTrue(actualText.contains(expectedText));
+			
+
+	}
+
+//	// negative login scenario
+//	@Test(priority = 2)
+//	public void verifyUsernotloggedinUsingwrongPassword() throws InterruptedException {
+//		loginobj.clickLogout();
+//		loginobj.setUsernamevalue("Admin");
+//		loginobj.setPassowrdvalue("admin1");
+//		loginobj.clickLogin();
+//		String actualMsg = loginobj.verifyInvalidCredentailsMsg();
+//		String expectedMsg = "Invalid credentials";
+//		Assert.assertEquals(actualMsg, expectedMsg);
+//
+//	}
+
+	@AfterTest
+	public void afterMethod() {
+		CloseBrowser();
+	}
+
+}

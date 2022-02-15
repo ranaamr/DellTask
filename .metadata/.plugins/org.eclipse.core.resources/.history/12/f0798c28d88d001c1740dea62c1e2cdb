@@ -1,0 +1,68 @@
+package com.TestCases;
+
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+
+import com.Base.TestBase;
+
+import com.Pages.RegisterPage;
+
+public class RegisterTCs extends TestBase {
+
+	RegisterPage registerobj;
+
+	@BeforeTest
+	public void beforeMethod() throws InterruptedException {
+
+		registerobj = new RegisterPage(driver);
+
+	}
+
+	// Positive login scenario
+	@Test(priority = 1)
+	public void verifyUsercanRegistersuccessfully() throws InterruptedException {
+		registerobj.clickCreateAccount();
+		registerobj.setFirstnamevalue("Rana");
+		registerobj.setLastnamevalue("Amr");
+		registerobj.setEmailvalue("RanaAmr@hotmail.com");
+		registerobj.chooseCountryvalue("");
+		registerobj.setPhonevalue("");
+		registerobj.setCompanyvalue("");
+		registerobj.setAddress1value("");
+		registerobj.setAddress2value("");
+		registerobj.setCityvalue("");
+		registerobj.chooseCountry2value("");
+		registerobj.setWhatsappMobvalue("");
+		registerobj.setPassowrd1value("");
+		registerobj.setPassowrd2value("");
+		registerobj.clickonrecaptchaCheck();
+		String actualText = registerobj.verifyUserRegisterSuccessfully();
+		String expectedText = "My Dashboard" ; 
+		AssertJUnit.assertTrue(actualText.contains(expectedText));
+			
+
+	}
+
+//	// negative login scenario
+//	@Test(priority = 2)
+//	public void verifyUsernotloggedinUsingwrongPassword() throws InterruptedException {
+//		loginobj.clickLogout();
+//		loginobj.setUsernamevalue("Admin");
+//		loginobj.setPassowrdvalue("admin1");
+//		loginobj.clickLogin();
+//		String actualMsg = loginobj.verifyInvalidCredentailsMsg();
+//		String expectedMsg = "Invalid credentials";
+//		Assert.assertEquals(actualMsg, expectedMsg);
+//
+//	}
+
+	@AfterTest
+	public void afterMethod() {
+		CloseBrowser();
+	}
+
+}
