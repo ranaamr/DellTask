@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-02-16T01:04:10 EET" name="Suite" finished-at="2022-02-16T01:04:14 EET" duration-ms="3790">
+    <groups>
+    </groups>
+    <test started-at="2022-02-16T01:04:10 EET" name="Test" finished-at="2022-02-16T01:04:14 EET" duration-ms="3790">
+      <class name="com.Test.Testcases">
+        <test-method signature="assertStatusCodeOFGetTVGategories()[pri:1, instance:com.Test.Testcases@6a400542]" started-at="2022-02-16T01:04:10 EET" name="assertStatusCodeOFGetTVGategories" finished-at="2022-02-16T01:04:13 EET" duration-ms="3056" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCodeOFGetTVGategories -->
+        <test-method signature="assertBodyOFGetTVGategories()[pri:2, instance:com.Test.Testcases@6a400542]" started-at="2022-02-16T01:04:13 EET" name="assertBodyOFGetTVGategories" finished-at="2022-02-16T01:04:14 EET" duration-ms="222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertBodyOFGetTVGategories -->
+        <test-method signature="assertOnContentType_JSON()[pri:3, instance:com.Test.Testcases@6a400542]" started-at="2022-02-16T01:04:14 EET" name="assertOnContentType_JSON" finished-at="2022-02-16T01:04:14 EET" duration-ms="126" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertOnContentType_JSON -->
+        <test-method signature="CheckthatCategoryisCreatedSuccessfully()[pri:4, instance:com.Test.Testcases@6a400542]" started-at="2022-02-16T01:04:14 EET" name="CheckthatCategoryisCreatedSuccessfully" finished-at="2022-02-16T01:04:14 EET" duration-ms="303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CheckthatCategoryisCreatedSuccessfully -->
+      </class> <!-- com.Test.Testcases -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
